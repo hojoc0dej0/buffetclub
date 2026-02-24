@@ -14,126 +14,54 @@
      <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js"></script>
   </head>
-  <body>
-	<main>
-      <div class="match-carousel">
-         <div class="match-slide">
-           <a href="https://www.youtube.com/watch?v=ai873FcX-Vc" target="_blank" rel="noopener noreferrer">
-           <img src="https://img.youtube.com/vi/ai873FcX-Vc/hqdefault.jpg" alt="vs. Chris Desmond: VCW">
-           <p>vs. Chris Desmond: VCW</p>
-           </a>
-         </div>
-         <div class="match-slide">
-           <a href="https://www.youtube.com/watch?v=TZG2fd5B2tc" target="_blank" rel="noopener noreferrer">
-           <img src="https://img.youtube.com/vi/TZG2fd5B2tc/hqdefault.jpg" alt="vs. Andy Brown: BST">
-           <p>vs. Andy Brown: BST</p>
-           </a>
-         </div>
-         <div class="match-slide">
-           <a href="https://www.youtube.com/watch?v=LNO9dcP5JI8" target="_blank" rel="noopener noreferrer">
-           <img src="https://img.youtube.com/vi/LNO9dcP5JI8/hqdefault.jpg" alt="vs. Travis Jacobs: Monster Factory">
-           <p>vs. Travis Jacobs: Monster Factory</p>
-           </a>
-         </div>
-         <div class="match-slide">
-           <a href="https://www.youtube.com/watch?v=wi-ip6ec-Ak" target="_blank" rel="noopener noreferrer">
-           <img src="https://img.youtube.com/vi/wi-ip6ec-Ak/hqdefault.jpg" alt="vs. Joe Ocasio: Wrestling Open">
-           <p>vs. Joe Ocasio: Wrestling Open</p>
-           </a>
-         </div>
-         <div class="match-slide">
-           <a href="https://www.youtube.com/watch?v=Vly2nqHnPUk" target="_blank" rel="noopener noreferrer">
-           <img src="https://img.youtube.com/vi/Vly2nqHnPUk/hqdefault.jpg" alt="2300 Arena Main Event">
-           <p>2300 Arena Main Event</p>
-           </a>
-         </div>
-         <div class="match-slide">
-           <a href="https://www.youtube.com/watch?v=Lar1oy-K2Kg" target="_blank" rel="noopener noreferrer">
-           <img src="https://img.youtube.com/vi/Lar1oy-K2Kg/hqdefault.jpg" alt="vs. Xander Alexander: MFPW">
-           <p>vs. Xander Alexander: MFPW</p>
-           </a>
-         </div>
+ <body>
+  <header class="site-header">
+    <!-- optional: logo + nav later -->
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-inner">
+        <h1 id="title">Join the Buffet Club</h1>
+        <p id="description">
+          Subscribe to receive exclusive alerts on new merch, upcoming bouts, and more!
+        </p>
+        <form id="survey-form" method="post" action="https://formspree.io/f/xwvljgvb" class="card">
+          <!-- formspree honeypot -->
+          <input type="text" name="_gotcha" style="display:none">
+          <fieldset>
+            <label id="name-label">Full Name:
+              <input id="name" name="full_name" type="text" placeholder="John Smith" required autocomplete="name">
+            </label>
+            <label id="email-label">Email:
+              <input id="email" name="email" type="email" placeholder="hungryman@eat.com" required autocomplete="email">
+            </label>
+            <label id="phone-label">Phone#:
+              <input id="phone" name="phone_number" type="tel" placeholder="555-555-5555" required autocomplete="tel">
+            </label>
+          </fieldset>
+          <input id="submit" type="submit" value="Submit">
+        </form>
+        <div id="thank-you" hidden aria-live="polite">
+          <p>Thanks for joining the Buffet Club! Check your email for exclusive updates.</p>
+        </div>
       </div>
-	</main>
-      <h1 id="title">Join the Buffet Club</h1>
-      <p id="description"> Subscribe to my newsletter to receive exclusive alerts on new merch, upcoming bouts, and more!</p>
-      <form id="survey-form" method="post" action="https://formspree.io/f/xwvljgvb">
-		<!-- formspree honeypot -->
-		 <input type="text" name="_gotcha" style="display:none">
-        <fieldset>
-          <label id="name-label">Full Name:
-          <input id="name" name="full_name" type="text" placeholder="John Smith" required autocomplete="name"></label>
-          <label id="email-label">Email:
-          <input id="email" name="email" type="email" placeholder="hungryman@eat.com" required autocomplete="email"></label>
-          <label id="phone-label">Phone#:
-          <input id="phone" name="phone_number" type="tel" placeholder="555-555-5555" required autocomplete="tel"></label>
-        </fieldset>
-        <fieldset>
-          <label id="number-label">How many times have you eaten today?
-          <input id="number" name="how_many_eats" type="number" placeholder="1-100000" min="0" max="100000000" required></label>
-        </fieldset>
-        <fieldset> 
-          <legend>Which promotion have you seen me wrestle at?</legend>
-          <label for="monster-factory" class="inline-text">Monster Factory
-          <input id="monster-factory" type="radio" name="promotion" value="monster-factory" class="inline"/></label>
-          <label for="bst-wrestling" class="inline-text">BST Wrestling
-          <input id="bst-wrestling" type="radio" name="promotion" value="bst-wrestling" class="inline"/></label>
-          <label for="wrestling-open" class="inline-text">Wrestling Open
-          <input id="wrestling-open" type="radio" name="promotion" value="wrestling-open" class="inline"/></label>
-          <label for="courage-pro" class="inline-text">Courage Pro
-          <input id="courage-pro" type="radio" name="promotion" value="courage-pro" class="inline"/></label>
-          <label for="coliseum-pro" class="inline-text">Coliseum Pro
-          <input id="coliseum-pro" type="radio" name="promotion" value="coliseum-pro" class="inline"/></label>
-          <label for="pwr" class="inline-text">Pro Wrestling:R
-          <input id="pwr" type="radio" name="promotion" value="pwr" class="inline"/></label>
-          <label for="other-multiple" class="inline-text">Other/multiple
-          <input id="other-multiple" type="radio" name="promotion" value="other_multiple" class="inline"/></label>
-        </fieldset>
-        <fieldset>
-          <legend> Where would you like to see me wrestle? </legend>
-          <label for="WWE" class="inline-text">WWE
-          <input id="wwe" type="checkbox" name="promotion_interest[]" value="wwe" class="inline"/></label>
-          <label for="AEW" class="inline-text">AEW
-          <input id="aew" type="checkbox" name="promotion_interest[]" value="aew" class="inline"/></label>
-          <label for="TNA" class="inline-text">TNA
-          <input id="tna" type="checkbox" name="promotion_interest[]" value="tna" class="inline"/></label>
-          <label for="NJPW" class="inline-text">NJPW
-          <input id="njpw" type="checkbox" name="promotion_interest[]" value="njpw" class="inline"/></label>
-          <label for="NWA" class="inline-text">NWA
-          <input id="nwa" type="checkbox" name="promotion_interest[]" value="nwa" class="inline"/></label>
-          <label for="MLW" class="inline-text">MLW
-          <input id="mlw" type="checkbox" name="promotion_interest[]" value="mlw" class="inline"/></label>
-          <label class="inline-text" for="other-promotion">Other (specify in the text area on the bottom)
-          <input id="other-promotion" type="checkbox" name="promotion_interest[]" value="other" class="inline"/></label>
-        </fieldset>
-        <fieldset>
-          <legend class="centered-text">How did you hear about me? </legend>
-          <select id="dropdown" name="referral_source" class="dropdown">
-            <option value="">(select one)</option>
-            <option value="1">Apple TV+ show</option>
-            <option value="2">Saw you live</option>
-            <option value="3">Social Media</option>
-            <option value="4">Linktree</option>
-            <option value="5">Friend/Family</option>
-            <option value="6">Other</option>
-          </select>
-        </fieldset>
-        <fieldset>
-			<label for="comments">Additional comments</label>
-			<textarea name="comments" placeholder="Other promotions & any additional comments here:" rows="4" cols="80"></textarea>
-        </fieldset>
-        <input id="submit" type="submit" value="Submit">
-      </form>
-	  <div id="thank-you" style="display:none;" aria-live="polite">
-		<p>Thanks for joining the Buffet Club! Check your email for exclusive updates.</p>
-	  </div>
-	  <footer>
-	    <p>&copy; 2024 Hurley Jones. All Rights Reserved.</p>
-      <div>
-		<a href="https://github.com/h0j0codej0" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-		<a href="https://www.linkedin.com/in/hurley-jones-4892a32b9/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-	  </div>
-	  </footer>
-	<script src="buffetclub.js"></script>
-  </body>
+    </section>
+    <!-- MATCH CAROUSEL (moves to its own readable section) -->
+    <section class="matches">
+      <h2 class="section-title">Featured Matches</h2>
+      <div class="match-carousel">
+        <!-- your match-slide blocks exactly as they are -->
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <p>&copy; 2024 Hurley Jones. All Rights Reserved.</p>
+    <div class="social">
+      <a href="https://github.com/h0j0codej0" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/hurley-jones-4892a32b9/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </footer>
+  <script src="buffetclub.js"></script>
+</body>
 </html>
