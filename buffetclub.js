@@ -1,8 +1,5 @@
 $(function () {
 
-  /* ===============================
-     Slick carousel
-  =============================== */
   $('.match-carousel').slick({
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -16,17 +13,12 @@ $(function () {
     ]
   });
 
-  /* ===============================
-     Cleave phone formatting
-  =============================== */
   new Cleave('#phone', {
     phone: true,
     phoneRegionCode: 'US'
   });
 
-  /* ===============================
-     Live input validation
-  =============================== */
+
   const inputs = document.querySelectorAll(
     "input[type='text'], input[type='email'], input[type='tel'], input[type='number']"
   );
@@ -36,6 +28,13 @@ $(function () {
   });
 
   function validateInput(input) {
+    const value = input.value.trim();
+
+    if (value === '') {
+      input.classList.remove('valid', 'invalid');
+      return;
+    }
+    
     let isValid = false;
     let regex;
 
@@ -67,6 +66,14 @@ $(function () {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
+    inputs.forEach(i => validateInput(i));
+
+    const anyInvalid = Array.from(inputs).some(i => i.classList.contains('invalid'));
+    if (anyInvalid) {
+      alert("Please fix the highlighted fields before submitting.");
+      return;
+    }
+
     // Disable button to prevent double submissions
     submitBtn.disabled = true;
     submitBtn.value = "Submitting…";
@@ -81,8 +88,8 @@ $(function () {
       });
 
       if (response.ok) {
-        form.style.display = "none";
-        thankYou.style.display = "block";
+        form.hidden = "true";
+        thankYou.hidden = "false";
         thankYou.scrollIntoView({ behavior: "smooth" });
         form.reset();
       } else {
@@ -96,5 +103,6 @@ $(function () {
       alert("Network error. Please try again later.");
     }
   });
+
 
 });
