@@ -1,47 +1,86 @@
+:root{
+  --accent: #a432e7;
+  --gold: #fbad37;
+  --ink: #101820;
+  --card: rgba(255,255,255,0.92);
+  --card-dark: rgba(0,0,0,0.55);
+}
+
 html, body {
   height: 100%;
   margin: 0;
   font-family: 'Oswald', sans-serif;
-  color: #a432e7;
-
-  /* Background image with subtle overlay */
-  background: 
-    linear-gradient(rgba(16, 24, 32, 0.4), rgba(16, 24, 32, 0.4)),
-    url('https://res.cloudinary.com/dd3qowqb7/image/upload/v1769305025/buffetclubbackground_fvfbpb.jpg') 
-    no-repeat center center fixed;
-  background-size: cover;
+  color: var(--accent);
+  background: #0b0b0f;
 }
 
-/* Headings & paragraphs */
-h1, p {
+
+body{
+  background:
+    linear-gradient(rgba(16, 24, 32, 0.55), rgba(16, 24, 32, 0.55)),
+    url('https://res.cloudinary.com/dd3qowqb7/image/upload/v1769305025/buffetclubbackground_fvfbpb.jpg')
+    no-repeat center center;
+  background-size: cover;
+  background-attachment: scroll; 
+}
+
+main{
+  padding: 2.5rem 1rem 3rem;
+}
+
+#title, #description{
   text-align: center;
   text-transform: uppercase;
-  color: #a432e7;
+  color: var(--accent);
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* ===============================
-   Form Styles
-=============================== */
-form {
-  width: 90%;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  position: relative; /* ensures form sits above background */
-  z-index: 1; /* make sure background is behind */
+#title{
+  margin: 1.25rem auto 0.5rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: 0.03em;
 }
+
+#description{
+  margin: 0 auto 1.25rem;
+  max-width: 60ch;
+  color: rgba(255,255,255,0.92);
+  text-transform: none;
+  letter-spacing: 0.01em;
+}
+#survey-form{
+  width: min(640px, 92vw);
+  margin: 1.25rem auto 2.5rem;
+  padding: 1.5rem 1.25rem;
+  background: var(--card);
+  color: #111;
+  border-radius: 18px;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 1;
+}
+
 
 fieldset {
   border: none;
-  border-bottom: 2px solid #fbad37;
-  margin-bottom: 20px;
-  padding-bottom: 15px;
+  border-bottom: 2px solid var(--gold);
+  margin: 0 0 1.25rem 0;
+  padding: 0 0 1rem 0;
 }
 
 label {
   display: block;
   font-size: 16px;
-  margin-bottom: 8px;
+  margin: 0 0 0.8rem 0;
+  color: #111;
+}
+
+legend {
+  color: #111; 
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
 input[type="text"],
@@ -51,37 +90,15 @@ input[type="number"],
 textarea,
 select {
   width: 100%;
-  padding: 10px;
-  border: 2px solid #a432e7;
-  border-radius: 5px;
+  padding: 10px 35px 10px 10px;
+  border: 2px solid var(--accent);
+  border-radius: 10px;
   background-color: #fff;
-  color: #333;
-  transition: 0.3s ease-in-out;
+  color: #222;
+  transition: 0.2s ease-in-out;
   background-position: right 10px center;
   background-repeat: no-repeat;
-  background-size: 20px 20px;
-  padding-right: 35px; /* space for validation icons */
-}
-
-input[type="submit"] {
-  width: 40%;
-  display: block;
-  margin: 20px auto 0 auto;
-  background-color: #a432e7;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: 0.3s ease;
-}
-
-input[type="submit"]:hover {
-  background-color: #8f2fcf;
-}
-
-legend {
-  color: #ffffff;
+  background-size: 18px 18px;
 }
 
 input[type="radio"],
@@ -90,24 +107,39 @@ input[type="checkbox"] {
   margin-right: 8px;
 }
 
+input[type="submit"] {
+  width: min(260px, 100%);
+  display: block;
+  margin: 18px auto 0;
+  background-color: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 12px 14px;
+  cursor: pointer;
+  border-radius: 999px;
+  transition: 0.2s ease;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+input[type="submit"]:hover {
+  background-color: #8f2fcf;
+  transform: translateY(-1px);
+}
+
 /* ===============================
-   Validation States
+   Validation States (less aggressive)
 =============================== */
 input.valid {
-  background-color: #28a745;
   border-color: #28a745;
   background-image: url('https://upload.wikimedia.org/wikipedia/commons/2/27/Green_check.svg');
 }
 
 input.invalid {
-  background-color: #dc3545;
   border-color: #dc3545;
   background-image: url('https://upload.wikimedia.org/wikipedia/commons/b/b2/X_mark.svg');
 }
 
-/* ===============================
-   Focus / Accessibility
-=============================== */
 input:focus,
 select:focus,
 textarea:focus,
@@ -115,15 +147,15 @@ button:focus,
 a:focus {
   outline: 3px solid #ff9800;
   outline-offset: 2px;
-  background-color: #fff8e1;
 }
 
-/* ===============================
-   Carousel
-=============================== */
 .match-carousel {
-  width: 90%;
-  margin: 0 auto 40px auto;
+  width: min(920px, 92vw);
+  margin: 0 auto 1.75rem;
+  padding: 0.9rem 0.75rem;
+  border-radius: 18px;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(8px);
 }
 
 .match-slide {
@@ -133,24 +165,23 @@ a:focus {
 
 .match-slide img {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 .match-slide p {
   color: #fff;
   font-size: 14px;
-  margin-top: 5px;
+  margin-top: 8px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
-/* ===============================
-   Responsive
-=============================== */
 @media (max-width: 600px) {
-  form {
-    width: 95%;
+  #survey-form{
+    padding: 1.25rem 1rem;
   }
 
   input[type="submit"] {
-    width: 60%;
+    width: 100%;
   }
 }
